@@ -1,0 +1,34 @@
+{
+  "name": "weathercam-logger",
+  "version": "1.0.0",
+  "description": "Logging plugin for Auroras.live Weather Cam",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weathercam",
+    "plugin",
+    "log",
+    "logger",
+    "debug"
+  ],
+  "plugin": {
+    "provides": [
+      "logger"
+    ],
+    "consumes": [
+      "eventbus"
+    ],
+    "options": {
+      "logfile": "./logs/logs.txt"
+    }
+  },
+  "author": "David Gray",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.14.1",
+    "winston": "^2.2.0",
+    "winston-daily-rotate-file": "^1.3.0"
+  }
+}
