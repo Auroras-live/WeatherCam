@@ -13,7 +13,7 @@ module.exports = function setup(options, imports, register) {
     });
 
     cam.on("read", function(err, timestamp, filename){
-      imports.eventbus.emit("camera.photo.taken", filename)
+      imports.uploader.upload(process.cwd() + "/images/" + filename)
     });
 
     cam.on("start", function(err, timestamp){

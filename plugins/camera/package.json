@@ -16,7 +16,8 @@
       "camera"
     ],
     "consumes": [
-      "eventbus"
+      "eventbus",
+      "uploader"
     ],
     "options": {}
   },
