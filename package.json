@@ -1,0 +1,35 @@
+{
+  "name": "weathercam",
+  "version": "0.0.1",
+  "description": "Software to turn a Raspberry Pi into an Auroras.live weather camera",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Auroras-live/WeatherCam.git"
+  },
+  "keywords": [
+    "webcam",
+    "auroras.live",
+    "camera",
+    "weather",
+    "sky",
+    "cloud"
+  ],
+  "author": "David Gray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Auroras-live/WeatherCam/issues"
+  },
+  "homepage": "https://github.com/Auroras-live/WeatherCam#readme",
+  "dependencies": {
+    "architect": "^0.1.11",
+    "cfonts": "^1.0.2",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-util": "^3.0.7",
+    "shelljs": "^0.7.4"
+  }
+}
