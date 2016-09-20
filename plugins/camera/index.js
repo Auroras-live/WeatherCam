@@ -3,7 +3,10 @@ module.exports = function setup(options, imports, register) {
     var fs = require("fs")
     var RaspiCam = require("raspicam");
     var cam = new RaspiCam({
-        ts: 5000,
+        tl: 5000,
+        q: 100,
+        w: 3280,
+        h: 2464,
         mode: "timelapse",
         output: process.cwd() + "/images/image.jpg",
         ex: "auto"
