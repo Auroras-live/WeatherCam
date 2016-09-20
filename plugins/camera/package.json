@@ -12,12 +12,17 @@
     "plugin"
   ],
   "plugin": {
-    "provides": ["camera"],
-    "consumes": ["eventbus"],
-    "options": {
-      
-    }
+    "provides": [
+      "camera"
+    ],
+    "consumes": [
+      "eventbus"
+    ],
+    "options": {}
   },
   "author": "David Gray",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "raspicam": "^0.2.13"
+  }
 }
