@@ -1,0 +1,23 @@
+{
+  "name": "weathercam-camera",
+  "version": "1.0.0",
+  "description": "Auroras.live Weather Cam camera plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weathercam",
+    "config",
+    "plugin"
+  ],
+  "plugin": {
+    "provides": ["camera"],
+    "consumes": ["eventbus"],
+    "options": {
+      
+    }
+  },
+  "author": "David Gray",
+  "license": "ISC"
+}
