@@ -3,14 +3,20 @@ module.exports = function setup(options, imports, register) {
     var fs = require("fs")
     var RaspiCam = require("raspicam");
     var cam = new RaspiCam({
-        ts: 300000,
+        ts: 5000,
         mode: "timelapse",
         output: process.cwd() + "/images/image.jpg",
         ex: "auto"
     });
 
-    camera.on("read", function(err, timestamp, filename){
+    cam.on("read", function(err, timestamp, filename){
       imports.eventbus.emit("camera.photo.taken", filename)
+    });
+
+    cam.on("start", function(err, timestamp){
+      if(err) {
+        console.dir(err)
+      }
     });
 
     cameraObj = {
