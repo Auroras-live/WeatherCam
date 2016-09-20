@@ -1,0 +1,32 @@
+{
+  "name": "weathercam-uploader",
+  "version": "1.0.0",
+  "description": "Uploader plugin for Auroras.live Weather Cam",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weathercam",
+    "upload",
+    "picture",
+    "image"
+  ],
+  "plugin": {
+    "provides": [
+      "uploader"
+    ],
+    "consumes": [
+      "eventbus",
+      "logger"
+    ],
+    "options": {
+      "endpoint": "http://192.168.1.2/api.auroras.live/v1/integration/weathercam.php"
+    }
+  },
+  "author": "David Gray",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.75.0"
+  }
+}
