@@ -1,6 +1,7 @@
 module.exports = function setup(options, imports, register) {
     var package = require("./package.json")
     var request = require("request")
+    var fs = require("fs")
 
     imports.eventbus.on("camera.photo.taken", function(file) {
       imports.logger.log("Uploading file: " + file)
@@ -15,7 +16,7 @@ module.exports = function setup(options, imports, register) {
             if (err) {
               console.log('Error: ' + err);
             } else {
-              console.log("OK!")
+              console.log(body)
             }
           });
           var form = req.form();
