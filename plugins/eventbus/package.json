@@ -1,0 +1,26 @@
+{
+  "name": "weathercam-eventbus",
+  "version": "1.0.0",
+  "description": "Event emitter plugin for Auroras.live Weather Cam",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "eventemitter",
+    "weathercam",
+    "plugin",
+    "eventbus"
+  ],
+  "plugin": {
+    "provides": [
+      "eventbus"
+    ]
+  },
+  "author": "David Gray",
+  "license": "ISC",
+  "dependencies": {
+    "pattern-emitter": "^1.0.0",
+    "socket.io": "^1.4.8"
+  }
+}
