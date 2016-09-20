@@ -1,0 +1,24 @@
+{
+  "name": "weathercam-config",
+  "version": "1.0.0",
+  "description": "Auroras.live Weather Cam config plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weathercam",
+    "config",
+    "plugin"
+  ],
+  "plugin": {
+    "provides": ["config"],
+    "consumes": ["eventbus"],
+    "options": {
+      "configFile": "./config/config.json",
+      "schema": "./schemas/config.json"
+    }
+  },
+  "author": "David Gray",
+  "license": "ISC"
+}
