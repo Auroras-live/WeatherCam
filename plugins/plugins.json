@@ -1,0 +1,20 @@
+[
+	{
+		"packagePath": "./plugins/camera"
+	},
+	{
+		"packagePath": "./plugins/config"
+	},
+	{
+		"packagePath": "./plugins/eventbus"
+	},
+	{
+		"packagePath": "./plugins/imagemagick"
+	},
+	{
+		"packagePath": "./plugins/logger"
+	},
+	{
+		"packagePath": "./plugins/updater"
+	}
+]
