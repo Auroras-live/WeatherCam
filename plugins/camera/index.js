@@ -13,7 +13,9 @@ module.exports = function setup(options, imports, register) {
     });
 
     cam.on("read", function(err, timestamp, filename){
-      imports.uploader.upload(process.cwd() + "/images/" + filename)
+      if(filename.indexOf("~") == -1) {
+        imports.uploader.upload(process.cwd() + "/images/" + filename)
+      }
     });
 
     cam.on("start", function(err, timestamp){
