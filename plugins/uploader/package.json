@@ -27,6 +27,8 @@
   "author": "David Gray",
   "license": "ISC",
   "dependencies": {
+    "form-data": "^2.0.0",
+    "node-fetch": "^1.6.1",
     "request": "^2.75.0"
   }
 }
