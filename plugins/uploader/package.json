@@ -18,7 +18,8 @@
     ],
     "consumes": [
       "eventbus",
-      "logger"
+      "logger",
+      "config"
     ],
     "options": {
       "endpoint": "https://192.168.1.2/api.auroras.live/v1/integration/weathercam.php"
