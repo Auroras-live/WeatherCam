@@ -13,7 +13,7 @@ module.exports = function setup(options, imports, register) {
             file: fs.createReadStream(file),
           };
 
-          request.post({url: options.options.endpoint, formData: formData}, function(err, httpResponse, body) {
+          request.post({url: options.options.endpoint, strictSSL: false, formData: formData}, function(err, httpResponse, body) {
             if (err) {
               return console.error('upload failed:', err);
             }
