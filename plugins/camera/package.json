@@ -23,7 +23,5 @@
   },
   "author": "David Gray",
   "license": "ISC",
-  "dependencies": {
-    "raspicam": "^0.2.13"
-  }
+  "dependencies": {}
 }
