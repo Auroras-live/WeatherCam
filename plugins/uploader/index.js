@@ -18,6 +18,7 @@ module.exports = function setup(options, imports, register) {
               return console.error('upload failed:', err);
             }
             console.log('Upload successful!  Server responded with:', body);
+            fs.unlink(file)
           });
         }
     }
