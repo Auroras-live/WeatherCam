@@ -4,7 +4,7 @@ module.exports = function setup(options, imports, register) {
     var RaspiCam = require("raspicam");
     var cam = new RaspiCam({
         mode: "timelapse",
-        timelapse: 10000,
+        timelapse: 60000,
         quality: 100,
         width: 1440,
         height: 900,
