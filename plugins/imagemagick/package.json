@@ -12,12 +12,17 @@
     "plugin"
   ],
   "plugin": {
-    "provides": ["imagemagick"],
-    "consumes": ["eventbus"],
-    "options": {
-      
-    }
+    "provides": [
+      "imagemagick"
+    ],
+    "consumes": [
+      "eventbus"
+    ],
+    "options": {}
   },
   "author": "David Gray",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "gm": "^1.23.0"
+  }
 }
