@@ -4,8 +4,10 @@ module.exports = function setup(options, imports, register) {
     var fs = require("fs")
 
     imports.eventbus.on("camera.photo.taken", function(file) {
-        imports.logger.log("Uploading file: " + file)
-        uploaderObj.upload(file)
+        if(file.indexOf("~") == -1) {
+          imports.logger.log("Uploading file: " + file)
+          uploaderObj.upload(file)
+        }
     })
 
     // Define our plugin and functions
