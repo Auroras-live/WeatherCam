@@ -5,7 +5,7 @@ module.exports = function setup(options, imports, register) {
     cameraObj = {
         plugin: package,
         start: function() {
-            cp.exec("/opt/vc/bin/raspistill --timelapse 60000 --quality 100 --width 1440 --height 900 --output " + process.cwd() + "/images/image.jpg --exposure auto")
+            cp.exec("/opt/vc/bin/raspistill --timelapse 60000 --quality 100 --width 1440 --height 900 --output " + process.cwd() + "/images/image.jpg --exposure auto -a \"" + imports.config.config.location + " %Y-%m-%d " + (new Date()).getTimezoneOffset() + "\"")
             fs.watch(process.cwd() + "/images/", function(eventType, filename) {
                 if (filename === "image.jpg") {
                     console.log("Image found. Uploading")
