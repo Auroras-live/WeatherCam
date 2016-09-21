@@ -18,7 +18,8 @@
     "consumes": [
       "uploader",
       "eventbus",
-      "config"
+      "config",
+      "imagemagick"
     ],
     "options": {}
   },
