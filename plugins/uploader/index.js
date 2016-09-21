@@ -4,23 +4,26 @@ module.exports = function setup(options, imports, register) {
     var fs = require("fs")
 
     imports.eventbus.on("camera.photo.taken", function(file) {
-      imports.logger.log("Uploading file: " + file)
-      uploaderObj.upload(file)
+        imports.logger.log("Uploading file: " + file)
+        uploaderObj.upload(file)
     })
 
     // Define our plugin and functions
     var uploaderObj = {
         plugin: package,
         upload: function(file) {
-          var req = request.post(options.options.endpoint, function (err, resp, body) {
-            if (err) {
-              console.log('Error: ' + err);
-            } else {
-              console.log(body)
-            }
-          });
-          var form = req.form();
-          form.append('file', fs.createReadStream(file));
+            var req = request.post({
+                url: options.options.endpoint,
+                strictSSL: false
+            }, function(err, resp, body) {
+                if (err) {
+                    console.log('Error: ' + err);
+                } else {
+                    console.log(body)
+                }
+            });
+            var form = req.form();
+            form.append('file', fs.createReadStream(file));
         }
     }
 
