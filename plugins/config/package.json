@@ -15,7 +15,7 @@
     "provides": ["config"],
     "consumes": ["eventbus"],
     "options": {
-      "configFile": "./config/config.json",
+      "configFile": "/boot/weathercam/config.json",
       "schema": "./schemas/config.json"
     }
   },
