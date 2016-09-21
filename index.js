@@ -52,5 +52,6 @@ architectApp.on("error", function(err) {
 
 architectApp.on("ready", function(app) {
   app.services.eventbus.emit("app.ready")
+  app.services.config.load()
   app.services.camera.start()
 })

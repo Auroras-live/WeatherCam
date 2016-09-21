@@ -16,12 +16,15 @@
       "camera"
     ],
     "consumes": [
+      "uploader",
       "eventbus",
-      "uploader"
+      "config"
     ],
     "options": {}
   },
   "author": "David Gray",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "raspicam": "^0.2.13"
+  }
 }
