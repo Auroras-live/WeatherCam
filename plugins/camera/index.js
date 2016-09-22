@@ -7,9 +7,9 @@ module.exports = function setup(options, imports, register) {
         start: function() {
             flip = ""
             if (typeof imports.config.config.flip.horizontal !== "undefined") {
-                flip = "-hf"
+                flip += "-hf"
             } else if (typeof imports.config.config.flip.vertical !== "undefined") {
-                flip = "-vf"
+                flip += "-vf"
             }
 
             cp.exec("/opt/vc/bin/raspistill " + flip + " --timelapse 1000 --quality 100 --width 1440 --height 900 --output " + process.cwd() + "/images/image.jpg -t 999999999 --exposure auto -a 4 -a \"" + imports.config.config.location + " %Y-%m-%d %X%z\"")
