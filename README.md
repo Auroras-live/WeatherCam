@@ -1,4 +1,5 @@
 # WeatherCams
+A set of software for the Raspberry Pi that turns it into a skyward-pointing camera that people can use to check weather conditions when preparing to go out aurora hunting.
 
 ## Installation
 Eventually this will be released as a simple install script, but for now:
