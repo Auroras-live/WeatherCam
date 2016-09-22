@@ -5,20 +5,16 @@ module.exports = function setup(options, imports, register) {
     cameraObj = {
         plugin: package,
         start: function() {
-
-            cp.exec("/opt/vc/bin/raspistill --timelapse 60000 --quality 100 --width 1440 --height 900 --output " + process.cwd() + "/images/image.jpg -t 999999999 --exposure auto -a 4 -a \"" + imports.config.config.location + " %Y-%m-%d %X%z\"")
-            fs.watch(process.cwd() + "/images/", function(eventType, filename) {
-                if (filename === "image.jpg") {
-                    console.log("Image found. Watermarking")
-                    imports.imagemagick.watermark(process.cwd() + "/images/image.jpg")
-                }
-            });
+            cp.exec("/opt/vc/bin/raspistill --timelapse 1000 --quality 100 --width 1440 --height 900 --output " + process.cwd() + "/images/image.jpg -t 999999999 --exposure auto -a 4 -a \"" + imports.config.config.location + " %Y-%m-%d %X%z\"")
+            setInterval(function() {
+              imports.imagemagick.watermark(process.cwd() + "/images/image.jpg")
+            }, 60000)
         },
         stop: function() {
 
         },
         snap: function() {
-            cp.execSync("/opt/vc/bin/raspistill --quality 100 --width 1440 --height 900 --output " + process.cwd() + "/images/image_preview.jpg --exposure auto -a 4 -a \"" + imports.config.config.location + " %Y-%m-%d %X%z\"")        
+            cp.execSync("/opt/vc/bin/raspistill --quality 100 --width 1440 --height 900 --output " + process.cwd() + "/images/image_preview.jpg --exposure auto -a 4 -a \"" + imports.config.config.location + " %Y-%m-%d %X%z\"")
         }
     }
 
