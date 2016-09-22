@@ -19,5 +19,8 @@
 	},
 	{
 		"packagePath": "./plugins/uploader"
+	},
+	{
+		"packagePath": "./plugins/web"
 	}
 ]
