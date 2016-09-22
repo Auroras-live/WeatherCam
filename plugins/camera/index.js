@@ -5,7 +5,7 @@ module.exports = function setup(options, imports, register) {
     cameraObj = {
         plugin: package,
         start: function() {
-            cp.exec("/opt/vc/bin/raspistill --timelapse 60000 --quality 100 --width 1440 --height 900 --output " + process.cwd() + "/images/image.jpg --exposure auto -a 4 -a \"" + imports.config.config.location + " %Y-%m-%d %X%z\"")
+            cp.exec("/opt/vc/bin/raspistill --timelapse 60000 --quality 100 --width 1440 --height 900 --output " + process.cwd() + "/images/image.jpg -t 999999999 --exposure auto -a 4 -a \"" + imports.config.config.location + " %Y-%m-%d %X%z\"")
             fs.watch(process.cwd() + "/images/", function(eventType, filename) {
                 if (filename === "image.jpg") {
                     console.log("Image found. Watermarking")
