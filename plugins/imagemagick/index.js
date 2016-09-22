@@ -6,11 +6,11 @@ module.exports = function setup(options, imports, register) {
   imagemagickObj = {
     plugin: package,
     watermark: function(image) {
-      gm(image).composite(process.cwd() + '/logo.png').gravity("SouthEast").geometry("+100+100").write(image, function(err) {
+      gm(image).composite(process.cwd() + '/logo.png').gravity("SouthEast").geometry("+100+100").write(process.cwd() + "/images/image_watermark.jpg", function(err) {
         if(err) {
           console.log(err)
         } else {
-          imports.uploader.upload(process.cwd() + "/images/image.jpg")
+          imports.uploader.upload(process.cwd() + "/images/image_watermark.jpg")
         }
       })
     }
