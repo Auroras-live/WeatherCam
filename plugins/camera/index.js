@@ -8,7 +8,9 @@ module.exports = function setup(options, imports, register) {
             flip = ""
             if (typeof imports.config.config.flip.horizontal !== "undefined") {
                 flip += " -hf "
-            } else if (typeof imports.config.config.flip.vertical !== "undefined") {
+            }
+
+            if (typeof imports.config.config.flip.vertical !== "undefined") {
                 flip += " -vf "
             }
 
