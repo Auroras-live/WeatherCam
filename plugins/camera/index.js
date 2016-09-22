@@ -5,7 +5,12 @@ module.exports = function setup(options, imports, register) {
     cameraObj = {
         plugin: package,
         start: function() {
-            cp.exec("/opt/vc/bin/raspistill --timelapse 1000 --quality 100 --width 1440 --height 900 --output " + process.cwd() + "/images/image.jpg -t 999999999 --exposure auto -a 4 -a \"" + imports.config.config.location + " %Y-%m-%d %X%z\"")
+          if(typoeof imports.config.config.flipImage !== "undefined") {
+            flip = "-vf"
+          } else {
+            flip = ""
+          }
+            cp.exec("/opt/vc/bin/raspistill " + flip + " --timelapse 1000 --quality 100 --width 1440 --height 900 --output " + process.cwd() + "/images/image.jpg -t 999999999 --exposure auto -a 4 -a \"" + imports.config.config.location + " %Y-%m-%d %X%z\"")
             setInterval(function() {
               imports.imagemagick.watermark(process.cwd() + "/images/image.jpg")
             }, 60000)
