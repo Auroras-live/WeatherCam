@@ -14,7 +14,7 @@ module.exports = function setup(options, imports, register) {
             }, function(err, obj, body) {
                 if(err) { throw new error(err) }
                 imports.logger.log("imagemagick", "Weather retrieved", "info", body)
-                gm(image).fontSize(30).stroke('black', 1).fill('white').drawText(0, 40, body.location.name + ", " + body.location.state + " " + body.date + "\nCloud: " + body.cloud + "% | Temp: " + body.temperature + "°C | Rain: " + body.rain + "mm", 'north').write(process.cwd() + "/images/image_watermark.jpg", function(err) {
+                gm(image).fontSize(30).stroke('black', 1).fill('white').drawText(0, 40, body.location.name + ", " + body.location.state + ", " + body.location.country + " " + body.date + "\nCloud: " + body.cloud + "% | Temp: " + body.temperature + "°C | Rain: " + body.rain + "mm", 'north').write(process.cwd() + "/images/image_watermark.jpg", function(err) {
                   imports.logger.log("imagemagick", "Writing text to " + image)
                     gm(process.cwd() + "/images/image_watermark.jpg").composite(process.cwd() + '/logo.png').gravity("SouthEast").geometry("+25+25").write(process.cwd() + "/images/image_watermark.jpg", function(err) {
                         imports.logger.log("imagemagick", "Writing watermark to " + process.cwd() + "/images/image_watermark.jpg")
