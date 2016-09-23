@@ -15,9 +15,9 @@ module.exports = function setup(options, imports, register) {
 
           request.post({url: options.options.endpoint + "?key=" + imports.config.config.apikey, strictSSL: false, formData: formData}, function(err, httpResponse, body) {
             if (err) {
-              return console.error('upload failed:', err);
+              return imports.logger.error("uploader", 'upload failed: ' + err)
             }
-            console.log('Upload successful!  Server responded with:', body);
+            imports.logger.log("uploader", "File uploaded. Server responded with: ", "info", body)
           });
         }
     }
