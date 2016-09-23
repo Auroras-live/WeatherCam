@@ -18,7 +18,8 @@
     "consumes": [
       "eventbus",
       "uploader",
-      "config"
+      "config",
+      "logger"
     ],
     "options": {}
   },

@@ -19,7 +19,8 @@
       "uploader",
       "eventbus",
       "config",
-      "imagemagick"
+      "imagemagick",
+      "logger"
     ],
     "options": {}
   },
