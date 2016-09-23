@@ -17,13 +17,16 @@
     ],
     "consumes": [
       "eventbus",
-      "uploader"
+      "uploader",
+      "config"
     ],
     "options": {}
   },
   "author": "David Gray",
   "license": "ISC",
   "dependencies": {
-    "gm": "^1.23.0"
+    "gm": "^1.23.0",
+    "moment": "^2.15.1",
+    "request": "^2.75.0"
   }
 }
