@@ -12,10 +12,10 @@ module.exports = function setup(options, imports, register) {
                 url: "https://api.auroras.live/v1/?type=weather&lat=" + imports.config.config.lat + "&long=" + imports.config.config.long + "&tz=" + (new Date()).getTimezoneOffset(),
                 json: true
             }, function(err, obj, body) {
-                if(err) { throw new error(err) }
+                if(err) { throw new Error(err) }
                 imports.logger.log("imagemagick", "Weather retrieved", "info", body)
                 imageText = body.location.name + ", " + body.location.state + ", " + body.location.country + " " + body.date + "\nCloud: " + body.cloud + "% | Temp: " + body.temperature + "°C | Rain: " + body.rain + "mm"
-                gm(image).fontSize(30).stroke('black', 1).fill('white').drawText(0, 40, imageText, 'north').stroke('none').fill('white').drawText(0, 40, imageText, 'north').write(process.cwd() + "/images/image_watermark.jpg", function(err) {
+                gm(image).font(process.cwd() + "/OpenSans-Regular.ttf").fontSize(30).stroke('black', 1).fill('white').drawText(0, 40, imageText, 'north').stroke('none').fill('white').drawText(0, 40, imageText, 'north').write(process.cwd() + "/images/image_watermark.jpg", function(err) {
                   imports.logger.log("imagemagick", "Writing text to " + image)
                     gm(process.cwd() + "/images/image_watermark.jpg").composite(process.cwd() + '/logo.png').gravity("SouthEast").geometry("+25+25").write(process.cwd() + "/images/image_watermark.jpg", function(err) {
                         imports.logger.log("imagemagick", "Writing watermark to " + process.cwd() + "/images/image_watermark.jpg")
