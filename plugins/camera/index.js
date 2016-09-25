@@ -17,7 +17,7 @@ module.exports = function setup(options, imports, register) {
             cp.exec("/opt/vc/bin/raspistill " + flip + " --timelapse " + imports.config.config.timelapse + " --quality 100 --width 1440 --height 900 --output " + process.cwd() + "/images/image.jpg -t 999999999 --exposure auto")
             setInterval(function() {
                 imports.imagemagick.watermark(process.cwd() + "/images/image.jpg")
-            }, 60000)
+            }, 300000)
         },
         stop: function() {
 
