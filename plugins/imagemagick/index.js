@@ -14,8 +14,8 @@ module.exports = function setup(options, imports, register) {
             }, function(err, obj, body) {
                 if(err) { throw new Error(err) }
                 imports.logger.log("imagemagick", "Weather retrieved", "info", body)
-                imageText = body.weather.location.name + ", " + body.weather.location.state + ", " + body.weather.location.country + " " + body.date + "\nCloud: " + body.weather.cloud + "% | Temp: " + body.weather.temperature + "°C | Rain: " + body.weather.rain + "mm\nLocal aurora probability: " + body.probability.calculated.value + "%" 
-                gm(image).font(process.cwd() + "/OpenSans-Regular.ttf").fontSize(30).stroke('black', 1).fill('white').drawText(0, 40, imageText, 'north').stroke('none').fill('white').drawText(0, 40, imageText, 'north').write(process.cwd() + "/images/image_watermark.jpg", function(err) {
+                imageText = body.weather.location.name + ", " + body.weather.location.state + ", " + body.weather.location.country + " " + body.date + "\nCloud: " + body.weather.cloud + "% | Temp: " + body.weather.temperature + "°C | Rain: " + body.weather.rain + "mm\nLocal aurora probability: " + body.probability.calculated.value + "%"
+                gm(image).font(process.cwd() + "/OpenSans-Regular.ttf").fontSize(25).stroke('black', 1).fill('white').drawText(0, 40, imageText, 'north').stroke('none').fill('white').drawText(0, 40, imageText, 'north').write(process.cwd() + "/images/image_watermark.jpg", function(err) {
                   imports.logger.log("imagemagick", "Writing text to " + image)
                     gm(process.cwd() + "/images/image_watermark.jpg").composite(process.cwd() + '/logo.png').gravity("SouthEast").geometry("+25+25").write(process.cwd() + "/images/image_watermark.jpg", function(err) {
                         imports.logger.log("imagemagick", "Writing watermark to " + process.cwd() + "/images/image_watermark.jpg")
