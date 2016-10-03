@@ -33,4 +33,7 @@ autostart enable -n "weathercam" -p "~/weathercam" -c "nodemon index"
 # Set up raspi-config
 sudo raspi-config
 
-sudo grep 'pi /bin/bash /home/pi/weathercam/update.sh' /etc/crontab || sudo echo '0 0 * * * pi /bin/bash /home/pi/weathercam/update.sh' >> /etc/crontab
+# Run sudo
+sudo -i
+
+grep 'pi /bin/bash /home/pi/weathercam/update.sh' /etc/crontab || echo '0 0 * * * pi /bin/bash /home/pi/weathercam/update.sh' >> /etc/crontab
