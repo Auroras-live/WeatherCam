@@ -12,7 +12,7 @@ module.exports = function setup(options, imports, register) {
                 url: "https://api.auroras.live/v1/?type=all&weather=true&forecast=false&probability=true&threeday=false&ace=false&lat=" + imports.config.config.lat + "&long=" + imports.config.config.long + "&tz=" + (new Date()).getTimezoneOffset(),
                 json: true
             }, function(err, obj, body) {
-                if(err) { throw new Error(err) }
+                if(err) { imports.logger.log("imagemagick", "Error getting weather. Error was: ", err) }
                 imports.logger.log("imagemagick", "Weather retrieved", "info", body)
                 imageText = body.weather.location.name + ", " + body.weather.location.state + ", " + body.weather.location.country + " " + body.date + "\nCloud: " + body.weather.cloud + "% | Temp: " + body.weather.temperature + "°C | Rain: " + body.weather.rain + "mm\nLocal aurora probability: " + body.probability.calculated.value + "%"
                 gm(image).font(process.cwd() + "/OpenSans-Regular.ttf").fontSize(25).stroke('black', 1).fill('white').drawText(0, 40, imageText, 'north').stroke('none').fill('white').drawText(0, 40, imageText, 'north').write(process.cwd() + "/images/image_watermark.jpg", function(err) {
