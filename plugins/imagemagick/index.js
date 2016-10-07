@@ -20,9 +20,35 @@ module.exports = function setup(options, imports, register) {
                     imports.logger.log("imagemagick", "Error getting weather. Error was: ", err)
                 }
                 imports.logger.log("imagemagick", "Weather retrieved", "info", body)
-                imageText = body.weather.cloud + "%\n" + body.weather.temperature + "°C\n" + body.weather.rain + "mm\n" + body.weather.fog + "%\n" + moment(body.date).format("Y-MM-DD HH:mm:ss Z") + "\n" + moment(body.weather.sunset).format("Y-MM-DD HH:mm:ss Z") + "\n" + body.weather.location.name + ", " + body.weather.location.state + " " + body.weather.location.country
-                // Cloud, temperature, rain, fog, time, sunset, location
-                iconText = '\uf013\n\uf055\n\uf017\n\uf014\n\uf08c\n\uf052\n\uf0eb'
+                imageText = body.weather.cloud + "%\n" + body.weather.temperature + "°C\n" + body.weather.rain + "mm\n" + body.weather.fog + "%\n" + body.weather.wind.speed + "km/h " + body.weather.wind.direction + "\n" + moment(body.date).format("Y-MM-DD HH:mm:ss Z") + "\n" + moment(body.weather.sunset).format("Y-MM-DD HH:mm:ss Z") + "\n" + body.weather.location.name + ", " + body.weather.location.state + " " + body.weather.location.country
+                switch(body.weather.wind.direction) {
+                  case "N":
+                    windIcon = "\uf05c"
+                    break;
+                  case "NE":
+                    windIcon = "\uf05a"
+                    break;
+                  case "E":
+                    windIcon = "\uf059"
+                    break;
+                  case "SE":
+                    windIcon = "\uf05d"
+                    break;
+                  case "S":
+                    windIcon = "\uf060"
+                    break;
+                  case "SW":
+                    windIcon = "\uf05e"
+                    break;
+                  case "W":
+                    windIcon = "\uf061"
+                    break;
+                  case "NW":
+                    windIcon = "\uf05b"
+                    break;
+                }
+                // Cloud, temperature, rain, fog, wind, time, sunset, location
+                iconText = '\uf013\n\uf055\n\uf017\n\uf014\n" + windIcon + "\n\uf08c\n\uf052\n\uf0eb'
                 gm(image).font(process.cwd() + "/weathericons-regular-webfont.ttf").fontSize(iconsize).stroke('black', 1).fill('white').drawText(25, 25, iconText, 'SouthWest').stroke('none').fill('white').drawText(25, 25, iconText, 'SouthWest').write(process.cwd() + "/images/image_watermark.jpg", function(err) {
                     gm(process.cwd() + "/images/image_watermark.jpg").font(process.cwd() + "/OpenSans-Regular.ttf").fontSize(fontsize).stroke('black', 1).fill('white').drawText(85, 25, imageText, 'SouthWest').stroke('none').fill('white').drawText(85, 25, imageText, 'SouthWest').write(process.cwd() + "/images/image_watermark.jpg", function(err) {
                         imports.logger.log("imagemagick", "Writing text to " + image)
