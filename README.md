@@ -1,5 +1,15 @@
-# WeatherCams
-A set of software for the Raspberry Pi that turns it into a skyward-pointing camera that people can use to check weather conditions when preparing to go out aurora hunting.
+# WeatherCam
+This is alpha software, being written as part of the Auroras.live Sensor Network, an "internet of things" for aurora hunting equipment.
+
+## About the project
+The Auroras.live Sensor Network will be a range of internet-connected devices, ranging from skyward-facing webcams, through to home made magnetometers and internet connected weather stations. This system will be entirely DIY, so Auroras.live won't actually provide or set up these items, but will allow enthusiasts to add their items to the network using the Auroras.live API. Data will be provided on a map for others to explore and view.
+
+The software will be "one-way", so the software will push TO Auroras.live, but nobody can connect to or interfere with your device.
+
+## About this software
+This software uses the `raspistill` command, node.js and GraphicsMagick to take a photo every 5 minutes, overlay weather / aurora hunting data over the top, then uploads it to the Auroras.live sensor network where it's then displayed on a map on the website and app for others to view. 
+
+As mentioned above, this communication is presently one-way, so the sensor network has no control over the device, other than doing an update every night at midnight. 
 
 ## Installation
 Eventually this will be released as a simple install script, but for now:
