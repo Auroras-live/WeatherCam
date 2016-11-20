@@ -1,7 +1,7 @@
 {
-  "name": "weathercam-imagemagick",
+  "name": "weathercam-graphicsmagick",
   "version": "1.0.0",
-  "description": "Auroras.live Weather Cam imagemagick plugin",
+  "description": "Auroras.live Weather Cam graphicsmagick plugin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,11 +13,10 @@
   ],
   "plugin": {
     "provides": [
-      "imagemagick"
+      "graphicsmagick"
     ],
     "consumes": [
       "eventbus",
-      "uploader",
       "config",
       "logger"
     ],

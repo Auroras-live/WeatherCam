@@ -16,17 +16,11 @@
       "camera"
     ],
     "consumes": [
-      "uploader",
       "eventbus",
       "config",
-      "imagemagick",
       "logger"
-    ],
-    "options": {}
+    ]
   },
   "author": "David Gray",
-  "license": "ISC",
-  "dependencies": {
-    "raspicam": "^0.2.13"
-  }
+  "license": "ISC"
 }

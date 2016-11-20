@@ -1,16 +1,29 @@
 module.exports = function setup(options, imports, register) {
     var package = require("./package.json")
-    var winston = require('winston');
+    var winston = require('winston')
+    var fs = require("fs")
 
-    winston.remove(winston.transports.Console);
-    // winston.add(require('winston-daily-rotate-file'), {
-    //     filename: options.options.logfile,
-    //     prepend: true
-    // })
-    winston.add(winston.transports.Console, {
-        'timestamp': true,
-        'colorize': true
-    });
+    try {
+      // If file is greater than 10mb
+      if(fs.statSync(options.options.logfile)["size"] / 1000000.0 > 10) {
+        // Delete it
+        fs.unlink(options.options.logfile)
+      }
+    // Error is thrown if file doesn't exist (e.g. on first run)
+    // so we ignore it.
+    } catch(ex) {
+
+    }
+
+    winston.configure({
+      transports: [
+       new (winston.transports.Console)( {
+           'timestamp': true,
+           'colorize': true
+       }),
+       new (winston.transports.File)({ filename: options.options.logfile })
+     ]
+    })
 
     winston.level = process.env.LOG_LEVEL || 'debug'
     loggerObj = {
@@ -36,5 +49,5 @@ module.exports = function setup(options, imports, register) {
 
     register(null, {
         logger: loggerObj
-    });
-};
+    })
+}

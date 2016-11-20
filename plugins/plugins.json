@@ -9,18 +9,12 @@
 		"packagePath": "./plugins/eventbus"
 	},
 	{
-		"packagePath": "./plugins/imagemagick"
+		"packagePath": "./plugins/graphicsmagick"
 	},
 	{
 		"packagePath": "./plugins/logger"
 	},
 	{
-		"packagePath": "./plugins/updater"
-	},
-	{
 		"packagePath": "./plugins/uploader"
-	},
-	{
-		"packagePath": "./plugins/web"
 	}
 ]

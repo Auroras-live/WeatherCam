@@ -12,13 +12,19 @@
     "plugin"
   ],
   "plugin": {
-    "provides": ["config"],
-    "consumes": ["eventbus"],
+    "provides": [
+      "config"
+    ],
+    "consumes": [
+      "eventbus"
+    ],
     "options": {
-      "configFile": "/boot/weathercam/config.json",
-      "schema": "./schemas/config.json"
+      "configFile": "config/config.json"
     }
   },
   "author": "David Gray",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.2"
+  }
 }
