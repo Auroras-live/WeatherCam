@@ -91,10 +91,12 @@ module.exports = function setup(options, imports, register) {
                         .write(imports.config.get("camera.output.path", process.cwd() + "/images/") + imports.config.get("camera.output.filename", "image.jpg"), function(err) {
                             imports.logger.log("graphicsmagick", "Writing watermark to " + imports.config.get("camera.path", process.cwd() + "/images/") + imports.config.get("camera.watermark", "image.jpg"))
                             if (err) {
+                                imports.eventbus.emit("graphicsmagick.error", err)
                                 imports.logger.error("graphicsmagick", err)
                             } else {
                                 imports.logger.log("graphicsmagick", "Image watermarked. File saved to " + imports.config.get("camera.output.path", process.cwd() + "/images/") + imports.config.get("camera.output.filename", "image.jpg"))
                                 imports.eventbus.emit("graphicsmagick.watermarked", imports.config.get("camera.output.path", process.cwd() + "/images/") + imports.config.get("camera.output.filename", "image.jpg"))
+                                imports.eventbus.emit("file.ready", imports.config.get("camera.output.path", process.cwd() + "/images/") + imports.config.get("camera.output.filename", "image.jpg"))
                             }
                         })
                     })

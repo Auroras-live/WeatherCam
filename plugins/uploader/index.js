@@ -5,7 +5,7 @@ module.exports = function setup(options, imports, register) {
     var form = new FormData()
     var fs = require("fs")
 
-    imports.eventbus.on("graphicsmagick.watermarked", function(file) {
+    imports.eventbus.on("file.ready", function(file) {
       uploaderObj.upload(file)
     })
     // Define our plugin and functions
